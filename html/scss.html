@@ -113,21 +113,20 @@
                   }
                 </xmp>
 
-                <p>② global 변수, local 변수</p>
+                <p>② global 변수</p>
                 <span>global 변수: 모든 영역에서 사용 가능</span>
-                <span>local 변수 : 해당 소괄호 안에서만 사용가능</span>
-                <xmp>
-                    ex) $변수명 : 속성값;
-                </xmp>
 
                 <p>Scss</p>
                 <xmp>
-                   $bgc: #333;
-                   $point-color: #ddd;
+                   $width: 5px;
 
                    .box{
-                       background-color:$bgc;
-                       color:$point-color;
+                       $height: 5px !global;  // 규칙 내부에 작성했지만 전역 변수 사용
+                       width:$width;
+                       height:$height;
+                   }
+                   .box2{
+                       height:$height; // !global 플래그로 작성한 전역 변수 사용
                    }
                 </xmp>
                 <div style="text-align:center;">
@@ -135,15 +134,55 @@
                 </div>
                 <p class="p_t0">CSS</p>
                 <xmp>
-                  .box{
-                      background-color:#333;
-                      color:#ddd;
-                  }
+                    .box{
+                        width:5px;
+                        height:5px;
+                    }
+                    .box2{
+                        height:5px;
+                    }
                 </xmp>
 
-                <p>② Nesting(네스팅) 중첩</p>
-                <span>중괄호 안에 하위 요소에 대한 스타일을 지정하는 형태로 CSS 선택자를 중첩 할 수 있다.</span>
+                <p>③ local 변수</p>
+                <span>해당 소괄호 안에서만 사용가능한 변수</span>
 
+                <p>Scss</p>
+                <xmp>
+                    .box{
+                        $padding:5px;
+                        padding:$padding;
+
+                        .box-cont{
+                            padding:$padding; // 하위 규칙에도 사용가능
+                        }
+                    }
+                    .box2{
+                        padding:$padding; //지역 변수 범위를 벗어남 해당 지역에 변수가 없으므로 에러 발생..
+                    }
+                </xmp>
+                <div style="text-align:center;">
+                    ▼
+                </div>
+                <p class="p_t0">CSS</p>
+                <xmp>
+                    .box{
+                        padding:5px;
+                    }
+                    .box .box-cont{
+                        padding:5px;
+                    }
+                    .box2{
+                        error;
+                    }
+                </xmp>
+
+            </dd>
+        </dl>
+
+        <dl>
+            <dt><a href="#none">3. Nesting(네스팅) 중첩</a></dt>
+            <dd>
+                <span>중괄호 안에 하위 요소에 대한 스타일을 지정하는 형태로 CSS 선택자를 중첩 할 수 있다.</span>
                 <p>Scss</p>
                 <xmp>
                     .nesting{
@@ -181,6 +220,7 @@
                         color:red;
                     }
                 </xmp>
+                
             </dd>
         </dl>
     </div>
