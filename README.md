@@ -1,6 +1,12 @@
 # Sass / Scss
 Sass / Scss Pratice Files
 
+## Memo
+comfile
+'''
+sass filename.scss filename.css
+'''
+
 <!-- ## About
 - See : https://songwoorim.github.io/
 - Author : Design & Code by Woorim Song
