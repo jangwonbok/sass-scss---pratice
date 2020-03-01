@@ -2,7 +2,7 @@
 Sass / Scss Pratice Files
 
 ## Memo
-1 sass filename.scss filename.css
+1 sass filename.scss filename.css <br>
 2 sass --watch filename.scss:filename.css
 
 ## Setting up Development Environment
