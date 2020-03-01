@@ -1,1 +1,6 @@
-/* No CSS *//*# sourceMappingURL=ui.common.css.map */
+button {
+  border: 1px solid #ddd;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+/*# sourceMappingURL=ui.common.css.map */

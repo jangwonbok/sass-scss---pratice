@@ -9,8 +9,7 @@
   <link rel="stylesheet" href="../resource/css/reset.css" type="text/css">
   <link rel="stylesheet" href="../resource/css/ui.common.css" type="text/css">
   <!-- javascript -->
-  <!-- <script src="./resource/lib/jquery-1.12.4.min.js"></script>
-  <script src="./resource/js/ui.common.js"></script> -->
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
   <style>
     h1{ font-size:30px; margin-bottom:20px; }
 	p{ padding:20px 0 10px; font-weight:bold; font-size:15px; }
@@ -267,7 +266,7 @@
         </dl>
 
         <dl>
-            <dt>5. @at-root (중첩 벗어나기)</dt>
+            <dt><a href="#none">5. @at-root (중첩 벗어나기)</a></dt>
             <dd>
                 <span>중첩에서 벗어나고 싶을 때 @at-root 키워드를 사용합니다. 중첩 안에서 생성하되 중첩 밖에서 사용해야 유용</span>
                 <p>Scss</p>
@@ -304,6 +303,28 @@
         </dl>
     </div>
 
+    <script>
+        $('dl > dd').hide();
+        jQuery('dl > dt > a').on('click', function () {
+            $this = $(this);
+            $target = $this.parent().siblings('dd');
+            if(!$this.hasClass('on')) {
+                $this.addClass('on');
+                $target.addClass('active').stop().slideDown();	 //slideDown / show  
+            }else{
+                $target.addClass('on').stop().slideUp();
+                $this.removeClass('on');
+            }
+            return false;
+        });
+
+        $('.open').on('click',function(){
+            $('dl > dd').slideDown();
+        });
+        $('.close').on('click',function(){
+            $('dl > dd').slideUp();
+        });
+    </script>
  </body>
 
 </html>
