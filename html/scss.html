@@ -46,6 +46,7 @@
             <li>연습사이트  : <a href="https://www.sassmeister.com/">https://www.sassmeister.com</a></li>
             <li>참고사이트1 : <a href="https://grace-go.tistory.com/57?category=703276">https://grace-go.tistory.com/57?category=703276</a></li>
             <li>참고사이트2 : <a href="https://webclub.tistory.com/518">https://webclub.tistory.com/518</a></li>
+            <li>참고사이트3 : <a href="https://heropy.blog/2018/01/31/sass/">https://heropy.blog/2018/01/31/sass/</a></li>
         </ul>
         <div class="btn-area">
             <button class="open">전체 열기</button>
@@ -222,6 +223,83 @@
                     }
                 </xmp>
                 
+            </dd>
+        </dl>
+
+        <dl>
+            <dt><a href="#none">4. Ampersand (상위 선택자 참조)</a></dt>
+            <dd>
+                <span>중첩 안에서 & 키워드는 상위(부모) 선택자를 참조하여 치환합니다.</span>
+                <p>Scss</p>
+                <xmp>
+                    .box{
+                        position:absolute;
+                        &.active{
+                            color:red;
+                        }
+                    }
+
+                    .list{
+                        li{
+                            &:last-child{
+                                margin-right:0;
+                            }
+                        }
+                    }
+                </xmp>
+                <div style="text-align:center;">
+                    ▼
+                </div>
+                <p class="p_t0">CSS</p>
+                <xmp>
+                    .box{
+                        position:absolute;
+                    }
+                    .box.active{
+                        color:red;
+                    }
+                    .list li:last-child{
+                        margin-right:0;
+                    }
+                </xmp>
+                
+            </dd>
+        </dl>
+
+        <dl>
+            <dt>5. @at-root (중첩 벗어나기)</dt>
+            <dd>
+                <span>중첩에서 벗어나고 싶을 때 @at-root 키워드를 사용합니다. 중첩 안에서 생성하되 중첩 밖에서 사용해야 유용</span>
+                <p>Scss</p>
+                <xmp>
+                    .list{
+                        $w : 100px;
+                        $h : 50px;
+                        li{
+                            width:$w;
+                            height:$h;
+                        }
+                        @at-root .box{
+                            width:$w;
+                            height:$h;
+                        }
+                    }
+                </xmp>
+                <div style="text-align:center;">
+                    ▼
+                </div>
+                <p class="p_t0">CSS</p>
+                <xmp>
+                    .box{
+                        position:absolute;
+                    }
+                    .box.active{
+                        color:red;
+                    }
+                    .list li:last-child{
+                        margin-right:0;
+                    }
+                </xmp>
             </dd>
         </dl>
     </div>
