@@ -1,8 +1,76 @@
 button {
   border: 1px solid #ddd;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding: 5px 10px;
+}
+
+h1 {
+  margin-bottom: 20px;
+  font-size: 30px;
+}
+
+p {
+  padding: 20px 0 10px;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+span {
+  display: block;
+  padding: 5px 0;
+  font-size: 15px;
+}
+
+dl {
+  border: 1px solid #e9e5dd;
+}
+
+dl ~ dl {
+  margin-top: 10px;
+}
+
+dl dt a {
+  display: block;
+  font-size: 19px;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 15px 15px;
+}
+
+dl dd {
+  padding: 0 15px 25px 15px;
+}
+
+xmp {
+  display: block;
+  border: 1px dashed #ddd;
+  background: #f7f8fa;
+  padding: 0 20px 20px;
+  font-size: 12px;
+  font-family: "dotum";
+  letter-spacing: 0;
+  color: #666;
+  line-height: 20px;
+  overflow-x: auto;
+}
+
+.wrap {
+  padding: 30px;
+}
+
+.btn-area {
+  margin: 20px 0 20px 0;
+}
+
+.site-list {
+  margin-top: 5px;
+}
+
+.site-list li a {
+  color: blue;
+  text-decoration: underline;
+}
+
+.p_t0 {
+  padding-top: 0;
 }
 /*# sourceMappingURL=ui.common.css.map */
