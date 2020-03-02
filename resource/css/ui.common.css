@@ -1,5 +1,5 @@
 button {
-  border: 1px solid #ddd;
+  border: 1px solid #e9e5dd;
   padding: 5px 10px;
 }
 
@@ -42,7 +42,7 @@ dl dd {
 
 xmp {
   display: block;
-  border: 1px dashed #ddd;
+  border: 1px dashed #e9e5dd;
   background: #f7f8fa;
   padding: 0 20px 20px;
   font-size: 12px;

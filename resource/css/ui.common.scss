@@ -1,7 +1,11 @@
 @charset "UTF-8";
 
+@mixin borderStyle($width:1px, $border:solid, $color:#e9e5dd){
+    border:$width $border $color;
+}
+
 button{
-    border:1px solid #ddd;
+    @include borderStyle;
     padding:5px 10px;
 }
 
@@ -22,7 +26,7 @@ span{
     font-size:15px;
 }
 dl{ 
-    border:1px solid #e9e5dd;
+    @include borderStyle;
     ~ dl{
         margin-top:10px;
     }
@@ -43,7 +47,7 @@ dl{
 }
 xmp {
     display: block;
-    border: 1px dashed #ddd;
+    @include borderStyle(1px, dashed);
     background: #f7f8fa;
     padding: 0 20px 20px;
     font: {

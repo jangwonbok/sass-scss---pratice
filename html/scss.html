@@ -313,6 +313,197 @@
                 </xmp>
             </dd>
         </dl>
+
+        <dl>
+            <dt><a href="#none">7. 가져오기 (Import)</a></dt>
+            <dd>
+                <span>
+                    @import로 외부에서 가져온 Sass 파일은 모두 단일 CSS 출력 파일로 병합됩니다.<br>
+                    또한, 가져온 파일에 정의된 모든 변수 또는 Mixins 등을 주 파일에서 사용할 수 있습니다.
+                </span>
+                <p>Scss</p>
+                <xmp>
+                    @import "path/filename";
+                </xmp>
+            </dd>
+        </dl>
+
+        <dl>
+            <dt><a href="#none">8. @mixin, @include</a></dt>
+            <dd>
+                <p class="p_t0">① @mixin</p>
+                <span>
+                    Mixin는 스타일 시트 전체에서 재사용 할 CSS 선언 그룹 을 정의하는 기능
+                </span>
+                <xmp>
+                    @mixin 믹스인이름{
+                        스타일;
+                    }
+                </xmp>
+                <p>② @include</p>
+                <span>
+                    선언된 Mixin을 사용(포함)하기 위해서 선언하는 기능
+                </span>
+
+                <p>Scss</p>
+                <xmp>
+                    @mixin btnStyle{
+                        display:inline-block;
+                        padding:10px 10px;
+                        font: {
+                            size:10px;
+                            wieght:bold;
+                        }
+                        color:red;
+                    }
+
+                    .box{
+                        @include btnStyle;
+                    }
+                    .box2{
+                        @include btnStyle;
+                    }
+                </xmp>
+                <div style="text-align:center;">
+                    ▼
+                </div>
+                <p class="p_t0">CSS</p>
+                <xmp>
+                   .box{
+                        display:inline-block;
+                        padding:10px 10px;
+                        font-size:10px;
+                        font-weight:bold;
+                        color:red;
+                    }
+                   .box2{
+                        display:inline-block;
+                        padding:10px 10px;
+                        font-size:10px;
+                        font-weight:bold;
+                        color:red;
+                    }
+                </xmp>
+            </dd>
+        </dl>
+
+        <dl>
+            <dt><a href="#none">9. @mixin 인수값</a></dt>
+            <dd>
+                <p class="p_t0">① @mixin 인수</p>
+                <span>Mixin은 함수 처럼 인수값을 가질 수 있다. 하나의 Mixin으로 다양한 결과를 만들 수 있다.</span>
+                <xmp>
+                    @mixin 믹스인이름($매개변수){
+                        스타일;
+                    }
+                    @include 믹스인이름(인수);
+                </xmp>
+                <p>Scss</p>
+                <xmp>
+                    $color: #222;
+                    
+                    @mixin border-line($width, $color){
+                        border:$width solid $color;
+                    }
+                    
+                    .box1{
+                        @include border-line(5px, $color);
+                    }
+                </xmp>
+                <div style="text-align:center;">
+                    ▼
+                </div>
+                <p class="p_t0">CSS</p>
+                <xmp>
+                    .box1{
+                        border:5px solid #222;
+                    }
+                </xmp>
+
+                <p>② @mixin 인수 기본값 설정</p>
+                <span>
+                    인수값은 기본값을 가질 수 있습니다.<br>
+                    @include 포함 단계에서 별도의 인수가 전달되지 않으면 기본값이 사용됩니다.
+                </span>
+                <xmp>
+                    @mixin 믹스인이름($매개변수: 기본값){
+                        스타일;
+                    }
+                </xmp>
+                <p>Scss</p>
+                <xmp>
+                   @mixin border-line($width: 1px, $color:blue){
+                       border:$width solid $color;
+                   }
+                   .box1{
+                       @include border-line;
+                   }
+                   .box2{
+                       @include border-line(4px);
+                   }
+                </xmp>
+                <div style="text-align:center;">
+                    ▼
+                </div>
+                <p class="p_t0">CSS</p>
+                <xmp>
+                    .box1{
+                        border:1px solid blue;
+                    }
+                    .box2{
+                        border:4px solid blue;
+                    }
+                </xmp>
+
+                <p>③ 키워드 인수</p>
+                <span>
+                    mixin에 전달할 인수를 입력할 때 명시적으로 키워드(변수)를 입력하여 작성할 수 있습니다.<br>
+                    별도의 인수 입력 순서를 필요로 하지 않아 편리하게 작성할 수 있습니다.<br>
+                    단, 작성하지 않은 인수가 적용될 수 있도록 기본값을 설정해 주는 것이 좋습니다.
+                </span>
+                <xmp>
+                    @mixin 믹스인이름($매개변수A: 기본값, $매개변수B: 기본값){
+                        스타일;
+                    }
+                    @include 믹스인이름($매개변수B: 인수);
+                </xmp>
+                <p>Scss</p>
+                <xmp>
+                    @mixin position(
+                        $p: absolute,
+                        $t: null,
+                        $b: null,
+                        $l: null,
+                        $r: null
+                    ){
+                        position:$p;
+                        top:$t;
+                        bottom:$b;
+                        left:$l;
+                        right:$r;
+                    }
+
+                    .box1{
+                        @include position($b:10px, $r:20px);
+                    }
+                    .box2{
+                        @include position(fixed, $t:30px, $r:40px);
+                    }
+                </xmp>
+                <div style="text-align:center;">
+                    ▼
+                </div>
+                <p class="p_t0">CSS</p>
+                <xmp>
+                   .box1{
+                       position:absolute; bottom:10px; right:20px;
+                   }
+                   .box2{
+                       position:fixed; top:30px; right:40px;
+                   }
+                </xmp>
+            </dd>
+        </dl>
     </div>
 
     <script>
