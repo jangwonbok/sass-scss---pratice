@@ -614,6 +614,59 @@
                 </xmp>
             </dd>
         </dl>
+
+        <dl>
+            <dt><a href="#none">12. for</a></dt>
+            <dd>
+                <p class="p_t0">if문</p>
+                <span>
+                    @for는 스타일을 반복적으로 출력한다. through를 사용하는 형식과 to를 사용하는 형식으로 나뉜다.
+                </span>
+                <xmp>
+                    - through
+                    // 종료 만큼 반복
+                    @for $변수 from 시작 through 종료{
+                        // 반복내용
+                    }
+
+                    - to
+                    // 종료 직전 까지 반복
+                    @for $변수 from 시작 to 종료{
+                        // 반복내용
+                    }
+                </xmp>
+                <p class="p_t0">SCSS</p>
+                <xmp>
+                    - through
+                    @for $var from 1 through 3{
+                        .through:nth-child(#{$var}){
+                            width:20px;
+                        }
+                    }
+
+                    - to
+                    @for $var from 1 to 3{
+                        .to:nth-child(#{$var}){
+                            width:20px;
+                        }
+                    }
+                </xmp>
+                <div style="text-align:center;">
+                    ▼
+                </div>
+                <p class="p_t0">CSS</p>
+                <xmp>
+                    - through
+                    .through:nth-child(1){width:20px;}
+                    .through:nth-child(2){width:20px;}
+                    .through:nth-child(3){width:20px;}
+
+                    -to
+                    .to:nth-child(1){width:20px;}
+                    .to:nth-child(2){width:20px;}
+                </xmp>
+            </dd>
+        </dl>
     </div>
 
     <script>
